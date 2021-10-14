@@ -23,10 +23,10 @@ router.get("/:todoHeading", function (req, res) {
 
                 res.render("list", { //rendering available list
                     listTitle: _.capitalize(req.params.todoHeading),
-                    items: item.items
+                    items: item.items,
+                    id: item._id
                 });
             } else {
-
                 const list = new List({
                     name: _.capitalize(req.params.todoHeading),
                     items: defaultItem

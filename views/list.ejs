@@ -1,8 +1,16 @@
 <%- include("partials/header") -%>
 
-
 <div class="box" id="heading">
+
     <h1> <%= listTitle %> </h1>
+
+
+    <%if(listTitle!='Today'){%>
+    <form action="/deleteList" method='post'>
+        <button id= "removeButton" type="submit" name="listId" value="<%= id%>"><i class="fas fa-trash-alt"></i></button>
+    </form>
+    <%}%>
+
 </div>
 
 <div class="box">
@@ -19,12 +27,8 @@
 
     <form class="item" action="/" method="post">
         <input type="text" name="item" placeholder="New Item" required>
-        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+        <button id="addButton" type="submit" name="list" value="<%= listTitle %>">+</button>
     </form>
 </div>
-
-
-
-
 
 <%- include("partials/footer") -%>

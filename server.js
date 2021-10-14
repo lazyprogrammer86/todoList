@@ -9,6 +9,10 @@ app.use(express.urlencoded())
 app.use(routes)
 app.use(express.static('public'))
 
+app.use((req, res) => {
+    res.redirect('/')
+})
+
 app.set('view engine', 'ejs') // setting view engine to be ejs
 
 
